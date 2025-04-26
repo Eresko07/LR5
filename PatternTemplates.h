@@ -15,6 +15,22 @@ public:
     virtual string GetType() const = 0;
 };
 
+// Конкретные фрукты
+class Apple : public Fruit {
+public:
+    void Eat() override {
+        cout << "Eating apple..." << endl;
+    }
+    string GetType() const override { return "Apple"; }
+};
+
+class Orange : public Fruit {
+public:
+    void Eat() override {
+        cout << "Eating orange..." < endl;
+    }
+    string GetType() const override { return "Orange"; }
+};
 
 
 #endif // PATTERNTEMPLATESH
