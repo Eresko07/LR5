@@ -90,4 +90,31 @@ public:
     }
 };
 
+// Паттерн Шаблонный метод
+class FruitProcessor {
+public:
+    void Process(Fruit* fruit) {
+        Prepare(fruit);
+        CoreProcess(fruit);
+        Finish(fruit);
+    }
+    virtual ~FruitProcessor() {}
+protected:
+    virtual void Prepare(Fruit* fruit) = 0;
+    virtual void CoreProcess(Fruit* fruit) {
+        cout << "Processing " << fruit->GetType() << endl;
+    }
+    virtual void Finish(Fruit* fruit) = 0;
+};
+
+class AppleProcessor : public FruitProcessor {
+protected:
+    void Prepare(Fruit* fruit) override {
+        cout << "Washing apple..." << endl;
+    }
+    void Finish(Fruit* fruit) override {
+        cout << "Apple is ready!" << endl;
+    }
+};
+
 #endif // PATTERNTEMPLATESH
