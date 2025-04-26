@@ -5,7 +5,9 @@ using namespace std;
 
 void DemoContainerAndIterator() {
    cout << " Container and Iterator Demo " << endl;
-
+   Container<Fruit> fruitBox;
+    fruitBox.Add(new Apple());
+    fruitBox.Add(new Orange());
 }
 
 int main() {
