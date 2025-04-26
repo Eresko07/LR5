@@ -40,7 +40,9 @@ void DemoTemplateMethod() {
     processor.Process(&apple);
 }
 int main() {
-
+   DemoContainerAndIterator();
+   DemoStrategies();
+   DemoTemplateMethod();
 
     return 0;
 }
