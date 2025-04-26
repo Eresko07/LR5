@@ -15,7 +15,7 @@ void DemoContainerAndIterator() {
 }
 
 void DemoStrategies() {
-    std::cout << "\n Strategies Demo " << std::endl;
+    cout << "\n Strategies Demo " << endl;
     
     // Создаем фрукты
     Apple apple;
@@ -28,6 +28,16 @@ void DemoStrategies() {
     // Применяем разные стратегии
     quick.Eat(&apple);
     slow.Eat(&orange);
+}
+void DemoTemplateMethod() {
+    cout << "\n Template Method Demo " << endl;
+    
+    // Создаем фрукт и обработчик
+    Apple apple;
+    AppleProcessor processor;
+    
+    // Обрабатываем фрукт
+    processor.Process(&apple);
 }
 int main() {
 
