@@ -45,5 +45,28 @@ public:
     }
 };
 
+// Базовый итератор
+template<typename T>
+class Iterator {
+public:
+    virtual ~Iterator() {}
+    virtual void First() = 0;
+    virtual void Next() = 0;
+    virtual bool IsDone() const = 0;
+    virtual T* Current() = 0;
+};
+
+// Конкретный итератор для контейнера
+template<typename T>
+class ContainerIterator : public Iterator<T> {
+    const Container<T>* container;
+    size_t current;
+public:
+    ContainerIterator(const Container<T>* c) : container(c), current(0) {}
+    void First() override { current = 0; }
+    void Next() override { current++; }
+    bool IsDone() const override { return current >= container->Size(); }
+    T* Current() override { return container->Get(current); }
+};
 
 #endif // PATTERNTEMPLATESH
