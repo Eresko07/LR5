@@ -69,4 +69,25 @@ public:
     T* Current() override { return container->Get(current); }
 };
 
+// Паттерн Стратегия
+class EatingStrategy {
+public:
+    virtual ~EatingStrategy() {}
+    virtual void Eat(Fruit* fruit) = 0;
+};
+
+class QuickEatStrategy : public EatingStrategy {
+public:
+    void Eat(Fruit* fruit) override {
+        cout << "Quickly eating " << fruit->GetType() << endl;
+    }
+};
+
+class SlowEatStrategy : public EatingStrategy {
+public:
+    void Eat(Fruit* fruit) override {
+        std::cout << "Slowly enjoying " << fruit->GetType() << std::endl;
+    }
+};
+
 #endif // PATTERNTEMPLATESH
