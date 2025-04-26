@@ -32,5 +32,18 @@ public:
     string GetType() const override { return "Orange"; }
 };
 
+// Шаблонный контейнер
+template<typename T>
+class Container {
+    vector<T*> items;
+public:
+    void Add(T* item) { items.push_back(item); }
+    size_t Size() const { return items.size(); }
+    T* Get(size_t index) const { return items[index]; }
+    ~Container() {
+        for(auto item : items) delete item;
+    }
+};
+
 
 #endif // PATTERNTEMPLATESH
